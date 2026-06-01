@@ -57,83 +57,175 @@
       <!-- Left Column: Study Checkboxes -->
       <section class="phase-objectives-section">
         <div class="sketch-card">
-          <h3 style="font-family: 'Architects Daughter';">Learning Objectives</h3>
-          <p style="margin-bottom: 20px; font-size: 1rem; color: var(--text-secondary);">Read study materials and tick off objectives as you master them:</p>
+          <h3 style="font-family: 'Architects Daughter'; margin-bottom: 8px;">Learning Objectives</h3>
+          <p style="margin-bottom: 24px; font-size: 1.05rem; color: var(--text-secondary); font-style: italic;">
+            Read study materials and tick off objectives as you master them:
+          </p>
           
           <!-- Obj 1 -->
-          <label class="checkbox-container">
-            <input type="checkbox" id="p5_obj1" data-phase="5">
-            <span class="sketch-checkbox"></span>
-            <span class="label-text">
-              Kubernetes Hardening: Configure secure cluster endpoints, RBAC permissions, and ServiceAccounts.
-              <a href="https://kubeacademy.vmware.com/" target="_blank" class="study-link">KubeAcademy ↗</a>
-              <a href="https://github.com/walidshaari/Certified-Kubernetes-Security-Specialist" target="_blank" class="study-link">CKS Prep Repo ↗</a>
-            </span>
-          </label>
+          <div class="obj-row" onclick="document.getElementById('p5_obj1').click();">
+            <div class="obj-checkbox-wrapper">
+              <label class="checkbox-container" onclick="event.stopPropagation();">
+                <input type="checkbox" id="p5_obj1" data-phase="5">
+                <span class="sketch-checkbox"></span>
+              </label>
+            </div>
+            <div class="obj-icon">
+              <!-- Kubernetes Wheel/Helm Icon -->
+              <svg viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10" />
+                <path d="M12 2v20 M2 12h20 M12 12m-3 0a3 3 0 1 0 6 0 3 3 0 1 0-6 0" />
+              </svg>
+            </div>
+            <div class="obj-details">
+              <strong>Kubernetes Hardening</strong> — Configure secure cluster endpoints, RBAC permissions, network isolation policies, and ServiceAccounts.
+              <a href="https://kubeacademy.vmware.com/" target="_blank" class="study-tag" onclick="event.stopPropagation();">KubeAcademy ↗</a>
+              <a href="https://github.com/walidshaari/Certified-Kubernetes-Security-Specialist" target="_blank" class="study-tag" onclick="event.stopPropagation();">CKS Prep Repo ↗</a>
+            </div>
+          </div>
 
           <!-- Obj 2 -->
-          <label class="checkbox-container">
-            <input type="checkbox" id="p5_obj2" data-phase="5">
-            <span class="sketch-checkbox"></span>
-            <span class="label-text">
-              GitOps CD state: Deploy ArgoCD or Flux pipelines to maintain secure, synchronized system configurations.
-              <a href="https://codefresh.io/gitops-certification/" target="_blank" class="study-link">GitOps Academy ↗</a>
-            </span>
-          </label>
+          <div class="obj-row" onclick="document.getElementById('p5_obj2').click();">
+            <div class="obj-checkbox-wrapper">
+              <label class="checkbox-container" onclick="event.stopPropagation();">
+                <input type="checkbox" id="p5_obj2" data-phase="5">
+                <span class="sketch-checkbox"></span>
+              </label>
+            </div>
+            <div class="obj-icon">
+              <!-- GitOps CD Sync Icon -->
+              <svg viewBox="0 0 24 24">
+                <path d="M21.5 2v6h-6 M21.34 15.57a10 10 0 1 1-.57-8.38l.73-.73" />
+              </svg>
+            </div>
+            <div class="obj-details">
+              <strong>GitOps CD State</strong> — Deploy ArgoCD or Flux pipelines to maintain secure, synchronized, and tamper-proof system configurations.
+              <a href="https://codefresh.io/gitops-certification/" target="_blank" class="study-tag" onclick="event.stopPropagation();">GitOps Academy ↗</a>
+            </div>
+          </div>
 
           <!-- Obj 3 -->
-          <label class="checkbox-container">
-            <input type="checkbox" id="p5_obj3" data-phase="5">
-            <span class="sketch-checkbox"></span>
-            <span class="label-text">
-              Zero Trust Architecture: Understand micro-segmentation, identity-based connections, and continuous validation.
-            </span>
-          </label>
+          <div class="obj-row" onclick="document.getElementById('p5_obj3').click();">
+            <div class="obj-checkbox-wrapper">
+              <label class="checkbox-container" onclick="event.stopPropagation();">
+                <input type="checkbox" id="p5_obj3" data-phase="5">
+                <span class="sketch-checkbox"></span>
+              </label>
+            </div>
+            <div class="obj-icon">
+              <!-- Zero Trust Padlock Icon -->
+              <svg viewBox="0 0 24 24">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+              </svg>
+            </div>
+            <div class="obj-details">
+              <strong>Zero Trust Architecture</strong> — Understand micro-segmentation, identity-based connections, and continuous perimeter validation.
+            </div>
+          </div>
 
           <!-- Obj 4 -->
-          <label class="checkbox-container">
-            <input type="checkbox" id="p5_obj4" data-phase="5">
-            <span class="sketch-checkbox"></span>
-            <span class="label-text">
-              Service Mesh security: Configure Istio service meshes, enabling strict mutual TLS (mTLS) packet routing.
-            </span>
-          </label>
+          <div class="obj-row" onclick="document.getElementById('p5_obj4').click();">
+            <div class="obj-checkbox-wrapper">
+              <label class="checkbox-container" onclick="event.stopPropagation();">
+                <input type="checkbox" id="p5_obj4" data-phase="5">
+                <span class="sketch-checkbox"></span>
+              </label>
+            </div>
+            <div class="obj-icon">
+              <!-- Service Mesh Network Icon -->
+              <svg viewBox="0 0 24 24">
+                <circle cx="18" cy="18" r="3" />
+                <circle cx="6" cy="6" r="3" />
+                <circle cx="6" cy="18" r="3" />
+                <circle cx="18" cy="6" r="3" />
+                <line x1="6" y1="9" x2="6" y2="15" />
+                <line x1="18" y1="9" x2="18" y2="15" />
+                <line x1="9" y1="6" x2="15" y2="6" />
+                <line x1="9" y1="18" x2="15" y2="18" />
+              </svg>
+            </div>
+            <div class="obj-details">
+              <strong>Service Mesh Security</strong> — Configure Istio service meshes, enabling strict mutual TLS (mTLS) encrypted packet routing.
+            </div>
+          </div>
 
           <!-- Obj 5 -->
-          <label class="checkbox-container">
-            <input type="checkbox" id="p5_obj5" data-phase="5">
-            <span class="sketch-checkbox"></span>
-            <span class="label-text">
-              Security Chaos Engineering: Simulate node/service failures and security compromises to test system resiliency.
-            </span>
-          </label>
+          <div class="obj-row" onclick="document.getElementById('p5_obj5').click();">
+            <div class="obj-checkbox-wrapper">
+              <label class="checkbox-container" onclick="event.stopPropagation();">
+                <input type="checkbox" id="p5_obj5" data-phase="5">
+                <span class="sketch-checkbox"></span>
+              </label>
+            </div>
+            <div class="obj-icon">
+              <!-- Chaos Lightning Icon -->
+              <svg viewBox="0 0 24 24">
+                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+              </svg>
+            </div>
+            <div class="obj-details">
+              <strong>Security Chaos Engineering</strong> — Simulate node/service failures and security compromises to validate system resilience and alert recovery.
+            </div>
+          </div>
 
           <!-- Obj 6 -->
-          <label class="checkbox-container">
-            <input type="checkbox" id="p5_obj6" data-phase="5">
-            <span class="sketch-checkbox"></span>
-            <span class="label-text">
-              Advanced Scripting: Author custom security automation scripts or Kubernetes controllers using Go or Python.
-            </span>
-          </label>
+          <div class="obj-row" onclick="document.getElementById('p5_obj6').click();">
+            <div class="obj-checkbox-wrapper">
+              <label class="checkbox-container" onclick="event.stopPropagation();">
+                <input type="checkbox" id="p5_obj6" data-phase="5">
+                <span class="sketch-checkbox"></span>
+              </label>
+            </div>
+            <div class="obj-icon">
+              <!-- Code Braces Icon -->
+              <svg viewBox="0 0 24 24">
+                <polyline points="16 18 22 12 16 6" />
+                <polyline points="8 6 2 12 8 18" />
+              </svg>
+            </div>
+            <div class="obj-details">
+              <strong>Advanced Scripting</strong> — Author custom security automation scripts or Kubernetes operator controllers using Go or Python.
+            </div>
+          </div>
 
           <!-- Obj 7 -->
-          <label class="checkbox-container">
-            <input type="checkbox" id="p5_obj7" data-phase="5">
-            <span class="sketch-checkbox"></span>
-            <span class="label-text">
-              Portfolio & Resumes: Document all capstone works inside structured repositories. Prep CloudSec interview answers.
-            </span>
-          </label>
+          <div class="obj-row" onclick="document.getElementById('p5_obj7').click();">
+            <div class="obj-checkbox-wrapper">
+              <label class="checkbox-container" onclick="event.stopPropagation();">
+                <input type="checkbox" id="p5_obj7" data-phase="5">
+                <span class="sketch-checkbox"></span>
+              </label>
+            </div>
+            <div class="obj-icon">
+              <!-- Quill/Portfolio Icon -->
+              <svg viewBox="0 0 24 24">
+                <path d="M12 20h9 M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z" />
+              </svg>
+            </div>
+            <div class="obj-details">
+              <strong>Portfolio & Resumes</strong> — Document all capstone works inside structured repositories. Prep DevSecOps/CloudSec technical interview answers.
+            </div>
+          </div>
 
           <!-- Obj 8 -->
-          <label class="checkbox-container">
-            <input type="checkbox" id="p5_obj8" data-phase="5">
-            <span class="sketch-checkbox"></span>
-            <span class="label-text">
-              OSS Contributions: Engage with open-source CloudSec communities, audit code, and contribute pull requests.
-            </span>
-          </label>
+          <div class="obj-row" onclick="document.getElementById('p5_obj8').click();">
+            <div class="obj-checkbox-wrapper">
+              <label class="checkbox-container" onclick="event.stopPropagation();">
+                <input type="checkbox" id="p5_obj8" data-phase="5">
+                <span class="sketch-checkbox"></span>
+              </label>
+            </div>
+            <div class="obj-icon">
+              <!-- Heart/Engage Icon -->
+              <svg viewBox="0 0 24 24">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+              </svg>
+            </div>
+            <div class="obj-details">
+              <strong>OSS Contributions</strong> — Engage with open-source CloudSec communities, audit codebase releases, and contribute active pull requests.
+            </div>
+          </div>
 
         </div>
 

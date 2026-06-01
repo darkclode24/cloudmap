@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Phase 5: Advanced DevSecOps — CloudMap</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="branding">
+      <h1>CloudMap</h1>
+      <p>Phase 5: Advanced DevSecOps & Career Launch</p>
+    </div>
+    
+    <!-- Chalkboard theme toggle -->
+    <div class="toggle-container" id="theme-toggle" aria-label="Toggle Chalkboard Dark Mode">
+      <span>Sketchbook (Light)</span>
+      <div class="toggle-switch">
+        <div class="toggle-knob"></div>
+      </div>
+      <span>Blackboard (Dark)</span>
+    </div>
+  </header>
+
+  <!-- Content Container -->
+  <main class="phase-container">
+    
+    <!-- Back Button -->
+    <div class="back-btn-container">
+      <a href="index.html" class="sketch-btn">
+        <span>←</span> Back to Dashboard
+      </a>
+    </div>
+
+    <!-- Phase Details Sticker -->
+    <section class="phase-header-block sketch-card solid-border">
+      <div class="phase-title-group">
+        <span class="highlight-violet" style="color: #4c1d95; font-weight: bold; font-family: 'Architects Daughter'; font-size: 0.95rem;">Phase 5 Overview</span>
+        <h2 style="font-family: 'Architects Daughter'; margin-top: 8px;">Advanced DevSecOps & Career Launch</h2>
+        <p style="color: var(--text-secondary); margin-top: 4px;">Months 11-12 • Kubernetes security, ArgoCD GitOps, Zero-Trust network meshes (Istio mTLS), Chaos engineering, and career prep.</p>
+      </div>
+      <div class="phase-meta">
+        <div class="phase-badge-lg" id="phase-badge-p5">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 2s-8 6-8 12c0 2.2 1.8 4 4 4s4-1.8 4-4c0-2.2 1.8-4 4-4s4 1.8 4 4c0 6-8 12-8 12z" fill="none" />
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- Phase Two-Column Layout -->
+    <div class="phase-layout">
+      
+      <!-- Left Column: Study Checkboxes -->
+      <section class="phase-objectives-section">
+        <div class="sketch-card">
+          <h3 style="font-family: 'Architects Daughter';">Learning Objectives</h3>
+          <p style="margin-bottom: 20px; font-size: 1rem; color: var(--text-secondary);">Read study materials and tick off objectives as you master them:</p>
+          
+          <!-- Obj 1 -->
+          <label class="checkbox-container">
+            <input type="checkbox" id="p5_obj1" data-phase="5">
+            <span class="sketch-checkbox"></span>
+            <span class="label-text">
+              Kubernetes Hardening: Configure secure cluster endpoints, RBAC permissions, and ServiceAccounts.
+              <a href="https://kubeacademy.vmware.com/" target="_blank" class="study-link">KubeAcademy ↗</a>
+              <a href="https://github.com/walidshaari/Certified-Kubernetes-Security-Specialist" target="_blank" class="study-link">CKS Prep Repo ↗</a>
+            </span>
+          </label>
+
+          <!-- Obj 2 -->
+          <label class="checkbox-container">
+            <input type="checkbox" id="p5_obj2" data-phase="5">
+            <span class="sketch-checkbox"></span>
+            <span class="label-text">
+              GitOps CD state: Deploy ArgoCD or Flux pipelines to maintain secure, synchronized system configurations.
+              <a href="https://codefresh.io/gitops-certification/" target="_blank" class="study-link">GitOps Academy ↗</a>
+            </span>
+          </label>
+
+          <!-- Obj 3 -->
+          <label class="checkbox-container">
+            <input type="checkbox" id="p5_obj3" data-phase="5">
+            <span class="sketch-checkbox"></span>
+            <span class="label-text">
+              Zero Trust Architecture: Understand micro-segmentation, identity-based connections, and continuous validation.
+            </span>
+          </label>
+
+          <!-- Obj 4 -->
+          <label class="checkbox-container">
+            <input type="checkbox" id="p5_obj4" data-phase="5">
+            <span class="sketch-checkbox"></span>
+            <span class="label-text">
+              Service Mesh security: Configure Istio service meshes, enabling strict mutual TLS (mTLS) packet routing.
+            </span>
+          </label>
+
+          <!-- Obj 5 -->
+          <label class="checkbox-container">
+            <input type="checkbox" id="p5_obj5" data-phase="5">
+            <span class="sketch-checkbox"></span>
+            <span class="label-text">
+              Security Chaos Engineering: Simulate node/service failures and security compromises to test system resiliency.
+            </span>
+          </label>
+
+          <!-- Obj 6 -->
+          <label class="checkbox-container">
+            <input type="checkbox" id="p5_obj6" data-phase="5">
+            <span class="sketch-checkbox"></span>
+            <span class="label-text">
+              Advanced Scripting: Author custom security automation scripts or Kubernetes controllers using Go or Python.
+            </span>
+          </label>
+
+          <!-- Obj 7 -->
+          <label class="checkbox-container">
+            <input type="checkbox" id="p5_obj7" data-phase="5">
+            <span class="sketch-checkbox"></span>
+            <span class="label-text">
+              Portfolio & Resumes: Document all capstone works inside structured repositories. Prep CloudSec interview answers.
+            </span>
+          </label>
+
+          <!-- Obj 8 -->
+          <label class="checkbox-container">
+            <input type="checkbox" id="p5_obj8" data-phase="5">
+            <span class="sketch-checkbox"></span>
+            <span class="label-text">
+              OSS Contributions: Engage with open-source CloudSec communities, audit code, and contribute pull requests.
+            </span>
+          </label>
+
+        </div>
+
+        <!-- Capstone Project lined page -->
+        <div class="sketch-card project-journal">
+          <h3 style="font-family: 'Architects Daughter';">Capstone Project Journal</h3>
+          <p>Task Scenario: Build a production-ready, zero-trust cloud application stack inside Kubernetes managed entirely via GitOps declarative states.</p>
+          
+          <div style="margin-bottom: 20px; font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; line-height: 1.4; border: 1px dashed var(--border-color); padding: 10px; background-color: var(--bg-paper); border-radius: 4px;">
+            [Zero-Trust GitOps K8s Architecture Map]<br>
+            GitHub (HCL/YAML manifests) -> ArgoCD GitOps Syncs<br>
+            ├── Target K8s Cluster (Secure RBAC & NetworkPolicies)<br>
+            ├── Istio Service Mesh (Enforcing strict mTLS encryption)<br>
+            ├── OPA/Gatekeeper (Refusing root containers/privileges)<br>
+            └── Prometheus & Grafana SIEM (Monitors, security alerts)
+          </div>
+
+          <h4 style="font-family: 'Architects Daughter'; margin-bottom: 10px;">Requirement Checklist:</h4>
+          
+          <!-- Req 1 -->
+          <label class="checkbox-container">
+            <input type="checkbox" id="p5_req1" data-phase="5">
+            <span class="sketch-checkbox"></span>
+            <span class="label-text">Set up an ArgoCD controller to automatically sync K8s deployment manifests from a secure Git repository.</span>
+          </label>
+
+          <!-- Req 2 -->
+          <label class="checkbox-container">
+            <input type="checkbox" id="p5_req2" data-phase="5">
+            <span class="sketch-checkbox"></span>
+            <span class="label-text">Configure secure Kubernetes RBAC parameters (restricting ServiceAccount capabilities and permissions).</span>
+          </label>
+
+          <!-- Req 3 -->
+          <label class="checkbox-container">
+            <input type="checkbox" id="p5_req3" data-phase="5">
+            <span class="sketch-checkbox"></span>
+            <span class="label-text">Deploy strict NetworkPolicies that block unauthorized cross-namespace pod communication.</span>
+          </label>
+
+          <!-- Req 4 -->
+          <label class="checkbox-container">
+            <input type="checkbox" id="p5_req4" data-phase="5">
+            <span class="sketch-checkbox"></span>
+            <span class="label-text">Inject Istio sidecars, enforcing PeerAuthentication policies set to STRICT mutual TLS (mTLS).</span>
+          </label>
+
+          <!-- Req 5 -->
+          <label class="checkbox-container">
+            <input type="checkbox" id="p5_req5" data-phase="5">
+            <span class="sketch-checkbox"></span>
+            <span class="label-text">Deploy OPA/Gatekeeper constraint policies that refuse execution of privileged root containers.</span>
+          </label>
+
+          <!-- Req 6 -->
+          <label class="checkbox-container">
+            <input type="checkbox" id="p5_req6" data-phase="5">
+            <span class="sketch-checkbox"></span>
+            <span class="label-text">Configure a centralized Prometheus + Grafana dashboard to track and alert on anomalous access attempts.</span>
+          </label>
+
+          <!-- Req 7 -->
+          <label class="checkbox-container">
+            <input type="checkbox" id="p5_req7" data-phase="5">
+            <span class="sketch-checkbox"></span>
+            <span class="label-text">Conduct a simulated chaos test (disrupting pods/networks) to verify detection and alerting speeds.</span>
+          </label>
+
+          <!-- Req 8 -->
+          <label class="checkbox-container">
+            <input type="checkbox" id="p5_req8" data-phase="5">
+            <span class="sketch-checkbox"></span>
+            <span class="label-text">Draft a premium GitHub portfolio README outlining the system, tooling choices, and trade-offs.</span>
+          </label>
+
+          <!-- Req 9 -->
+          <label class="checkbox-container">
+            <input type="checkbox" id="p5_req9" data-phase="5">
+            <span class="sketch-checkbox"></span>
+            <span class="label-text">Record a 5-minute screencast walkthrough showcasing security configurations and pipeline triggers.</span>
+          </label>
+
+          <div class="project-tools-container">
+            <span class="tool-badge">ArgoCD</span>
+            <span class="tool-badge">Kubernetes</span>
+            <span class="tool-badge">Istio</span>
+            <span class="tool-badge">Go</span>
+            <span class="tool-badge">Terraform</span>
+            <span class="tool-badge">GitHub</span>
+            <span class="tool-badge">GitOps</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Right Column: Certs and badges -->
+      <section class="phase-sidebar-section">
+        
+        <!-- Certifications -->
+        <div class="sketch-card certs-panel">
+          <h3 style="font-family: 'Architects Daughter'; text-align: center; margin-bottom: 18px;">Certifications</h3>
+          
+          <!-- Cert 1 -->
+          <div class="cert-card">
+            <div class="cert-title-row">
+              <h4 style="font-family: 'Architects Daughter';">CNCF CKS</h4>
+              <span class="cert-cost highlight-yellow" style="color: #854d0e; font-weight: bold;">~$395</span>
+            </div>
+            <p class="cert-desc">Certified Kubernetes Security Specialist. The gold standard for container orchestration security validation.</p>
+          </div>
+
+          <!-- Cert 2 -->
+          <div class="cert-card">
+            <div class="cert-title-row">
+              <h4 style="font-family: 'Architects Daughter';">AWS Security Specialty</h4>
+              <span class="cert-cost highlight-yellow" style="color: #854d0e; font-weight: bold;">~$300</span>
+            </div>
+            <p class="cert-desc">Validates advanced cloud security administration controls, logging mechanisms, and cryptography on AWS.</p>
+          </div>
+
+          <!-- Cert 3 -->
+          <div class="cert-card">
+            <div class="cert-title-row">
+              <h4 style="font-family: 'Architects Daughter';">Google Cloud Security</h4>
+              <span class="cert-cost highlight-yellow" style="color: #854d0e; font-weight: bold;">~$200</span>
+            </div>
+            <p class="cert-desc">Professional Cloud Security Engineer. Highly valued credential proving GCP cluster security architectures.</p>
+          </div>
+
+          <!-- Cert 4 -->
+          <div class="cert-card">
+            <div class="cert-title-row">
+              <h4 style="font-family: 'Architects Daughter';">GIAC GCSA</h4>
+              <span class="cert-cost highlight-red" style="color: #7f1d1d; font-weight: bold;">Aspirational</span>
+            </div>
+            <p class="cert-desc">GIAC Cloud Security Automation. Highly advanced SANS credential. Extremely valuable but expensive (recommend company sponsorship).</p>
+          </div>
+
+        </div>
+
+      </section>
+
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>CloudMap &copy; 2026. Phase 5 learning path notebook page.</p>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

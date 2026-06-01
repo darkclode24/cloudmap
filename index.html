@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CloudMap — DevSecOps & Cloud Security Learning Roadmap</title>
+  <meta name="description" content="An interactive, hand-drawn study roadmap for computer engineering students transitioning to high-demand cloud security & DevSecOps careers within 12 months.">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="branding">
+      <h1>CloudMap</h1>
+      <p>Your 12-Month Hand-Drawn Transition to Cloud Security & DevSecOps</p>
+    </div>
+    
+    <!-- Chalkboard theme toggle -->
+    <div class="toggle-container" id="theme-toggle" aria-label="Toggle Chalkboard Dark Mode">
+      <span>Sketchbook (Light)</span>
+      <div class="toggle-switch">
+        <div class="toggle-knob"></div>
+      </div>
+      <span>Blackboard (Dark)</span>
+    </div>
+  </header>
+
+  <!-- Main Dashboard Hub -->
+  <main class="dashboard-container">
+    
+    <!-- Progress & Badges Shelf -->
+    <section class="progress-section">
+      <div class="sketch-card solid-border">
+        <div class="progress-header">
+          <h2>Your Study Journey</h2>
+          <span class="progress-percentage" id="overall-pct-text">0%</span>
+        </div>
+        <div class="progress-bar-container">
+          <div class="progress-bar-fill" id="overall-progress-bar"></div>
+        </div>
+        <p style="margin-top: 12px; font-style: italic; font-size: 1.15rem;" id="motivational-text">
+          A journey of a thousand miles begins with a single commit. Check some objectives to start!
+        </p>
+      </div>
+
+      <div class="sketch-card solid-border">
+        <h3 style="text-align: center; margin-bottom: 8px;">Trophy Shelf</h3>
+        <div class="badge-shelf">
+          
+          <!-- Badge 1 -->
+          <div class="badge-item" id="badge-p1">
+            <svg viewBox="0 0 24 24">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" fill="none" />
+            </svg>
+            <span class="tooltip">Foundation Shield</span>
+          </div>
+
+          <!-- Badge 2 -->
+          <div class="badge-item" id="badge-p2">
+            <svg viewBox="0 0 24 24">
+              <path d="M3 3h18v18H3V3z M3 9h18 M3 15h18 M9 3v18 M15 3v18" fill="none" />
+            </svg>
+            <span class="tooltip">Infrastructure Architect</span>
+          </div>
+
+          <!-- Badge 3 -->
+          <div class="badge-item" id="badge-p3">
+            <svg viewBox="0 0 24 24">
+              <path d="M21.5 2v6h-6 M21.34 15.57a10 10 0 1 1-.57-8.38l.73-.73" fill="none" />
+            </svg>
+            <span class="tooltip">Pipeline Guardian</span>
+          </div>
+
+          <!-- Badge 4 -->
+          <div class="badge-item" id="badge-p4">
+            <svg viewBox="0 0 24 24">
+              <circle cx="11" cy="11" r="8" fill="none" />
+              <line x1="21" y1="21" x2="16.65" y2="16.65" />
+            </svg>
+            <span class="tooltip">Compliance Sentinel</span>
+          </div>
+
+          <!-- Badge 5 -->
+          <div class="badge-item" id="badge-p5">
+            <svg viewBox="0 0 24 24">
+              <path d="M12 2s-8 6-8 12c0 2.2 1.8 4 4 4s4-1.8 4-4c0-2.2 1.8-4 4-4s4 1.8 4 4c0 6-8 12-8 12z" fill="none" />
+            </svg>
+            <span class="tooltip">DevSecOps Engineer</span>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Roadmap Board -->
+    <section class="roadmap-board">
+      
+      <!-- Left Column: The Roadmap SVG Canvas (65% width) -->
+      <div class="sketch-card solid-border roadmap-svg-card">
+        <h2 style="font-family: 'Architects Daughter'; text-align: center; margin-bottom: 12px; font-size: 1.6rem;">
+          Interactive Pipeline Route
+        </h2>
+        <div class="roadmap-svg-container">
+          <svg class="roadmap-svg" viewBox="0 0 850 250">
+            <!-- Dotted Guide Lines (Always Visible, Gray Pencil Guide) -->
+            <path class="pencil-path" d="M 100,120 Q 180,80 260,95" />
+            <path class="pencil-path" d="M 260,95 Q 350,140 440,148" />
+            <path class="pencil-path" d="M 440,148 Q 525,100 610,95" />
+            <path class="pencil-path" d="M 610,95 Q 680,125 750,133" />
+            
+            <!-- Animated Flowing Ink Path Segments (Initially Hidden, Unlocks with Progress!) -->
+            <path class="ink-path p1" id="path-p1" d="M 100,120 Q 180,80 260,95" />
+            <path class="ink-path p2" id="path-p2" d="M 260,95 Q 350,140 440,148" />
+            <path class="ink-path p3" id="path-p3" d="M 440,148 Q 525,100 610,95" />
+            <path class="ink-path p4" id="path-p4" d="M 610,95 Q 680,125 750,133" />
+
+            <!-- Node 1 (Phase 1) -->
+            <g class="node-group p1" id="node-p1" onclick="location.href='phase1.html'" data-phase="1">
+              <circle class="node-pulse" cx="100" cy="120" r="24" />
+              <circle class="node-circle" cx="100" cy="120" r="24" />
+              <!-- Hand-Drawn Shield Icon inside Node -->
+              <path class="node-icon" d="M 94,113 L 106,113 L 106,122 C 106,126 100,129 100,129 C 100,129 94,126 94,122 Z" />
+              <text class="node-text" x="100" y="162" text-anchor="middle">Phase 1</text>
+              <text class="node-subtext" x="100" y="179" text-anchor="middle">Foundations</text>
+            </g>
+
+            <!-- Node 2 (Phase 2) -->
+            <g class="node-group p2" id="node-p2" onclick="location.href='phase2.html'" data-phase="2">
+              <circle class="node-pulse" cx="260" cy="95" r="24" />
+              <circle class="node-circle" cx="260" cy="95" r="24" />
+              <!-- Hand-Drawn Server Blueprint Icon -->
+              <path class="node-icon" d="M 252,88 H 268 V 93 H 252 Z M 252,96 H 268 V 101 H 252 Z" />
+              <text class="node-text" x="260" y="138" text-anchor="middle">Phase 2</text>
+              <text class="node-subtext" x="260" y="155" text-anchor="middle">Cloud & IaC</text>
+            </g>
+
+            <!-- Node 3 (Phase 3) -->
+            <g class="node-group p3" id="node-p3" onclick="location.href='phase3.html'" data-phase="3">
+              <circle class="node-pulse" cx="440" cy="148" r="24" />
+              <circle class="node-circle" cx="440" cy="148" r="24" />
+              <!-- CI/CD Loop Icon -->
+              <path class="node-icon" d="M 432,148 A 6,6 0 1,0 444,148 A 6,6 0 1,0 432,148 Z M 440,148 A 4,4 0 1,1 448,148" />
+              <text class="node-text" x="440" y="190" text-anchor="middle">Phase 3</text>
+              <text class="node-subtext" x="440" y="207" text-anchor="middle">CI/CD Pipeline</text>
+            </g>
+
+            <!-- Node 4 (Phase 4) -->
+            <g class="node-group p4" id="node-p4" onclick="location.href='phase4.html'" data-phase="4">
+              <circle class="node-pulse" cx="610" cy="95" r="24" />
+              <circle class="node-circle" cx="610" cy="95" r="24" />
+              <!-- Magnifying Glass Icon -->
+              <path class="node-icon" d="M 604,91 A 4,4 0 1,1 612,91 A 4,4 0 1,1 604,91 M 610,95 L 616,101" />
+              <text class="node-text" x="610" y="138" text-anchor="middle">Phase 4</text>
+              <text class="node-subtext" x="610" y="155" text-anchor="middle">Compliance</text>
+            </g>
+
+            <!-- Node 5 (Phase 5) -->
+            <g class="node-group p5" id="node-p5" onclick="location.href='phase5.html'" data-phase="5">
+              <circle class="node-pulse" cx="750" cy="133" r="24" />
+              <circle class="node-circle" cx="750" cy="133" r="24" />
+              <!-- Rocket Icon -->
+              <path class="node-icon" d="M 746,137 L 750,123 L 754,137 L 750,134 Z" />
+              <text class="node-text" x="750" y="175" text-anchor="middle">Phase 5</text>
+              <text class="node-subtext" x="750" y="192" text-anchor="middle">GitOps & ZeroTrust</text>
+            </g>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Right Column: Interactive Notebook Sticky Preview Note (35% width) -->
+      <div class="sketch-card solid-border preview-note" id="phase-preview-card">
+        <!-- Notebook tape decoration -->
+        <div class="tape-doodle"></div>
+        <div id="preview-content">
+          <span class="doodle-alert-icon" style="font-size: 2.2rem; display: block; text-align: center; margin-bottom: 8px;">📖</span>
+          <h3 style="text-align: center; font-family: 'Architects Daughter'; font-size: 1.25rem;">Roadmap Examiner</h3>
+          <p style="text-align: center; font-style: italic; font-size: 0.95rem; margin-top: 10px;">
+            Hover over any phase node on the interactive pipeline map to audit the study plan!
+          </p>
+          <div style="margin-top: 20px; font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; line-height: 1.4; border: 1.5px dashed var(--border-color); padding: 12px; background-color: var(--bg-paper); border-radius: 4px;">
+            [Instructional Sketch]<br>
+            Hover Node ──> Audit Curriculum<br>
+            Tick Goals ──> Flow Highlight Ink<br>
+            Reach 100% ──> Unlock Badge
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Milestone Cards Grid -->
+    <section class="milestones-grid">
+      
+      <!-- Phase 1 Card -->
+      <article class="sketch-card" onclick="location.href='phase1.html'" style="cursor: pointer;">
+        <div class="milestone-header">
+          <span class="highlight-cyan" style="color: #083344; font-weight: bold; font-family: 'Architects Daughter';">Phase 1</span>
+          <span class="milestone-duration">Months 1-2</span>
+        </div>
+        <h3 style="font-family: 'Architects Daughter';">Foundations & Mindset</h3>
+        <p class="milestone-desc">Master Linux shell syntax, Python script automation, TCP/IP networking, and baseline cybersecurity OWASP threats.</p>
+        <div class="milestone-footer">
+          <span class="milestone-pct" id="phase1-pct-text">0%</span>
+          <span class="sketch-btn" style="padding: 2px 10px; font-size: 0.95rem;">Study <span class="milestone-arrow">→</span></span>
+        </div>
+      </article>
+
+      <!-- Phase 2 Card -->
+      <article class="sketch-card" onclick="location.href='phase2.html'" style="cursor: pointer;">
+        <div class="milestone-header">
+          <span class="highlight-cyan" style="color: #083344; font-weight: bold; font-family: 'Architects Daughter';">Phase 2</span>
+          <span class="milestone-duration">Months 3-5</span>
+        </div>
+        <h3 style="font-family: 'Architects Daughter';">Infrastructure & IaC Security</h3>
+        <p class="milestone-desc">Deploy AWS environments with Terraform HCL. Hardon OS configuration with Ansible and run Checkov/tfsec static scans.</p>
+        <div class="milestone-footer">
+          <span class="milestone-pct" id="phase2-pct-text">0%</span>
+          <span class="sketch-btn" style="padding: 2px 10px; font-size: 0.95rem;">Study <span class="milestone-arrow">→</span></span>
+        </div>
+      </article>
+
+      <!-- Phase 3 Card -->
+      <article class="sketch-card" onclick="location.href='phase3.html'" style="cursor: pointer;">
+        <div class="milestone-header">
+          <span class="highlight-green" style="color: #064e3b; font-weight: bold; font-family: 'Architects Daughter';">Phase 3</span>
+          <span class="milestone-duration">Months 6-8</span>
+        </div>
+        <h3 style="font-family: 'Architects Daughter';">CI/CD & Application Security</h3>
+        <p class="milestone-desc">Automate DevSecOps gates in GitHub Actions. Practice dependency composition scans (Trivy) and web DAST scans (ZAP).</p>
+        <div class="milestone-footer">
+          <span class="milestone-pct" id="phase3-pct-text">0%</span>
+          <span class="sketch-btn" style="padding: 2px 10px; font-size: 0.95rem;">Study <span class="milestone-arrow">→</span></span>
+        </div>
+      </article>
+
+      <!-- Phase 4 Card -->
+      <article class="sketch-card" onclick="location.href='phase4.html'" style="cursor: pointer;">
+        <div class="milestone-header">
+          <span class="highlight-green" style="color: #064e3b; font-weight: bold; font-family: 'Architects Daughter';">Phase 4</span>
+          <span class="milestone-duration">Months 9-10</span>
+        </div>
+        <h3 style="font-family: 'Architects Daughter';">Compliance & Monitoring</h3>
+        <p class="milestone-desc">Audit cloud baselines using OpenSCAP. Define Policy-as-Code checks with OPA (Rego) and setup GuardDuty alerting.</p>
+        <div class="milestone-footer">
+          <span class="milestone-pct" id="phase4-pct-text">0%</span>
+          <span class="sketch-btn" style="padding: 2px 10px; font-size: 0.95rem;">Study <span class="milestone-arrow">→</span></span>
+        </div>
+      </article>
+
+      <!-- Phase 5 Card -->
+      <article class="sketch-card" onclick="location.href='phase5.html'" style="cursor: pointer;">
+        <div class="milestone-header">
+          <span class="highlight-violet" style="color: #4c1d95; font-weight: bold; font-family: 'Architects Daughter';">Phase 5</span>
+          <span class="milestone-duration">Months 11-12</span>
+        </div>
+        <h3 style="font-family: 'Architects Daughter';">Advanced DevSecOps</h3>
+        <p class="milestone-desc">Implement zero-trust container routing with Istio mTLS and GitOps state syncs with ArgoCD inside Kubernetes.</p>
+        <div class="milestone-footer">
+          <span class="milestone-pct" id="phase5-pct-text">0%</span>
+          <span class="sketch-btn" style="padding: 2px 10px; font-size: 0.95rem;">Study <span class="milestone-arrow">→</span></span>
+        </div>
+      </article>
+
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>CloudMap &copy; 2026. Made with ❤️ for Computer Engineering Students.</p>
+    <p style="font-size: 0.85rem; margin-top: 4px;">Designed to print beautifully as a custom physical learning journal workbook.</p>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

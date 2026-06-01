@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Phase 2: Infrastructure & IaC Security — CloudMap</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="branding">
+      <h1>CloudMap</h1>
+      <p>Phase 2: Cloud Infrastructure & IaC Security</p>
+    </div>
+    
+    <!-- Chalkboard theme toggle -->
+    <div class="toggle-container" id="theme-toggle" aria-label="Toggle Chalkboard Dark Mode">
+      <span>Sketchbook (Light)</span>
+      <div class="toggle-switch">
+        <div class="toggle-knob"></div>
+      </div>
+      <span>Blackboard (Dark)</span>
+    </div>
+  </header>
+
+  <!-- Content Container -->
+  <main class="phase-container">
+    
+    <!-- Back Button -->
+    <div class="back-btn-container">
+      <a href="index.html" class="sketch-btn">
+        <span>←</span> Back to Dashboard
+      </a>
+    </div>
+
+    <!-- Phase Details Sticker -->
+    <section class="phase-header-block sketch-card solid-border">
+      <div class="phase-title-group">
+        <span class="highlight-cyan" style="color: #083344; font-weight: bold; font-family: 'Architects Daughter'; font-size: 0.95rem;">Phase 2 Overview</span>
+        <h2 style="font-family: 'Architects Daughter'; margin-top: 8px;">Cloud Infrastructure & IaC Security</h2>
+        <p style="color: var(--text-secondary); margin-top: 4px;">Months 3-5 • Cloud architecture security, Terraform HCL, Ansible hardening, and automated static security checks.</p>
+      </div>
+      <div class="phase-meta">
+        <div class="phase-badge-lg" id="phase-badge-p2">
+          <svg viewBox="0 0 24 24">
+            <path d="M3 3h18v18H3V3z M3 9h18 M3 15h18 M9 3v18 M15 3v18" fill="none" />
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- Phase Two-Column Layout -->
+    <div class="phase-layout">
+      
+      <!-- Left Column: Study Checkboxes -->
+      <section class="phase-objectives-section">
+        <div class="sketch-card">
+          <h3 style="font-family: 'Architects Daughter';">Learning Objectives</h3>
+          <p style="margin-bottom: 20px; font-size: 1rem; color: var(--text-secondary);">Read study materials and tick off objectives as you master them:</p>
+          
+          <!-- Obj 1 -->
+          <label class="checkbox-container">
+            <input type="checkbox" id="p2_obj1" data-phase="2">
+            <span class="sketch-checkbox"></span>
+            <span class="label-text">
+              AWS Infrastructure: Configure VPC subnets, Security Groups, IAM Policies, CloudTrail logs, and GuardDuty alerts.
+            </span>
+          </label>
+
+          <!-- Obj 2 -->
+          <label class="checkbox-container">
+            <input type="checkbox" id="p2_obj2" data-phase="2">
+            <span class="sketch-checkbox"></span>
+            <span class="label-text">
+              Multi-Cloud Equivalents: Explore Azure security tools (Entra ID, NSGs, Defender for Cloud) and GCP counterparts.
+            </span>
+          </label>
+
+          <!-- Obj 3 -->
+          <label class="checkbox-container">
+            <input type="checkbox" id="p2_obj3" data-phase="2">
+            <span class="sketch-checkbox"></span>
+            <span class="label-text">
+              Infrastructure as Code: Learn provisioning cloud setups using Terraform declarative syntax and workspaces.
+            </span>
+          </label>
+
+          <!-- Obj 4 -->
+          <label class="checkbox-container">
+            <input type="checkbox" id="p2_obj4" data-phase="2">
+            <span class="sketch-checkbox"></span>
+            <span class="label-text">
+              Configuration Hardening: Author secure Ansible playbooks to harden host configurations, firewalls, and packages.
+              <a href="https://dev-sec.io/" target="_blank" class="study-link">Hardening Framework ↗</a>
+            </span>
+          </label>
+
+          <!-- Obj 5 -->
+          <label class="checkbox-container">
+            <input type="checkbox" id="p2_obj5" data-phase="2">
+            <span class="sketch-checkbox"></span>
+            <span class="label-text">
+              IaC Static Analysis: Audit HCL files locally with tools like tfsec and Checkov to verify cloud configurations.
+              <a href="https://www.checkov.io/" target="_blank" class="study-link">Checkov Docs ↗</a>
+              <a href="https://github.com/aquasecurity/tfsec" target="_blank" class="study-link">tfsec Repo ↗</a>
+            </span>
+          </label>
+
+          <!-- Obj 6 -->
+          <label class="checkbox-container">
+            <input type="checkbox" id="p2_obj6" data-phase="2">
+            <span class="sketch-checkbox"></span>
+            <span class="label-text">
+              Secrets Vault: Implement cloud secrets isolation utilizing Key Managers and Vault environments.
+              <a href="https://developer.hashicorp.com/vault/tutorials/getting-started" target="_blank" class="study-link">Vault Labs ↗</a>
+            </span>
+          </label>
+
+          <!-- Obj 7 -->
+          <label class="checkbox-container">
+            <input type="checkbox" id="p2_obj7" data-phase="2">
+            <span class="sketch-checkbox"></span>
+            <span class="label-text">
+              Least Privilege design: Formulate IAM policies with granular boundaries, restricting excessive permissions.
+            </span>
+          </label>
+
+        </div>
+
+        <!-- Capstone Project lined page -->
+        <div class="sketch-card project-journal">
+          <h3 style="font-family: 'Architects Daughter';">Capstone Project Journal</h3>
+          <p>Task Scenario: Build a modular, automated, and secured AWS landing zone infrastructure using Terraform and Ansible with built-in security scans.</p>
+          
+          <div style="margin-bottom: 20px; font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; line-height: 1.4; border: 1px dashed var(--border-color); padding: 10px; background-color: var(--bg-paper); border-radius: 4px;">
+            [Hardened Landing Zone Pipeline Diagram]<br>
+            Git push -> CI/CD Pipeline (GitHub Actions)<br>
+            ├── Run tfsec & Checkov scans (Fails if High risk)<br>
+            ├── Deploy AWS Multi-tier VPC (Terraform S3 remote state)<br>
+            └── Hardens EC2 Server Configuration (Ansible CIS checklist)
+          </div>
+
+          <h4 style="font-family: 'Architects Daughter'; margin-bottom: 10px;">Requirement Checklist:</h4>
+          
+          <!-- Req 1 -->
+          <label class="checkbox-container">
+            <input type="checkbox" id="p2_req1" data-phase="2">
+            <span class="sketch-checkbox"></span>
+            <span class="label-text">Configure Terraform modules locally, scanned and verified clean of critical findings by `tfsec` and `Checkov`.</span>
+          </label>
+
+          <!-- Req 2 -->
+          <label class="checkbox-container">
+            <input type="checkbox" id="p2_req2" data-phase="2">
+            <span class="sketch-checkbox"></span>
+            <span class="label-text">Set up secure remote storage for Terraform state using an AWS S3 bucket and a DynamoDB locking table.</span>
+          </label>
+
+          <!-- Req 3 -->
+          <label class="checkbox-container">
+            <input type="checkbox" id="p2_req3" data-phase="2">
+            <span class="sketch-checkbox"></span>
+            <span class="label-text">Author an Ansible playbook that configures servers according to the CIS Benchmark (SSH hardening, firewall rules, auto-patching).</span>
+          </label>
+
+          <!-- Req 4 -->
+          <label class="checkbox-container">
+            <input type="checkbox" id="p2_req4" data-phase="2">
+            <span class="sketch-checkbox"></span>
+            <span class="label-text">Use `ansible-vault` to encrypt sensitive keys and configure secure password parameters.</span>
+          </label>
+
+          <!-- Req 5 -->
+          <label class="checkbox-container">
+            <input type="checkbox" id="p2_req5" data-phase="2">
+            <span class="sketch-checkbox"></span>
+            <span class="label-text">Build a CI/CD GitHub Actions workflow that executes automatic IaC security checks and blocks insecure deployments.</span>
+          </label>
+
+          <!-- Req 6 -->
+          <label class="checkbox-container">
+            <input type="checkbox" id="p2_req6" data-phase="2">
+            <span class="sketch-checkbox"></span>
+            <span class="label-text">Produce a detailed handwritten/sketched diagram of the landing zone architecture.</span>
+          </label>
+
+          <div class="project-tools-container">
+            <span class="tool-badge">Terraform</span>
+            <span class="tool-badge">Ansible</span>
+            <span class="tool-badge">Checkov</span>
+            <span class="tool-badge">tfsec</span>
+            <span class="tool-badge">Ansible-vault</span>
+            <span class="tool-badge">AWS CLI</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Right Column: Certs and badges -->
+      <section class="phase-sidebar-section">
+        
+        <!-- Certifications -->
+        <div class="sketch-card certs-panel">
+          <h3 style="font-family: 'Architects Daughter'; text-align: center; margin-bottom: 18px;">Certifications</h3>
+          
+          <!-- Cert 1 -->
+          <div class="cert-card">
+            <div class="cert-title-row">
+              <h4 style="font-family: 'Architects Daughter';">Terraform Associate</h4>
+              <span class="cert-cost highlight-yellow" style="color: #854d0e; font-weight: bold;">~$70</span>
+            </div>
+            <p class="cert-desc">HashiCorp Certified: Terraform Associate. Highly recognized credential validating your IaC coding capabilities.</p>
+          </div>
+
+          <!-- Cert 2 -->
+          <div class="cert-card">
+            <div class="cert-title-row">
+              <h4 style="font-family: 'Architects Daughter';">Azure Fundamentals</h4>
+              <span class="cert-cost highlight-green" style="color: #064e3b; font-weight: bold;">$0 Free</span>
+            </div>
+            <p class="cert-desc">Microsoft AZ-900. Join Microsoft Virtual Training Days to receive a free exam voucher and premium learning tracks.</p>
+          </div>
+
+          <!-- Cert 3 -->
+          <div class="cert-card">
+            <div class="cert-title-row">
+              <h4 style="font-family: 'Architects Daughter';">AWS Solutions Architect</h4>
+              <span class="cert-cost highlight-yellow" style="color: #854d0e; font-weight: bold;">~$150</span>
+            </div>
+            <p class="cert-desc">AWS SAA-C03. The gold standard cloud design certification. Prep guides and courses on official AWS Skill Builder are free.</p>
+          </div>
+
+          <!-- Cert 4 -->
+          <div class="cert-card">
+            <div class="cert-title-row">
+              <h4 style="font-family: 'Architects Daughter';">GCP Cloud Digital Leader</h4>
+              <span class="cert-cost highlight-yellow" style="color: #854d0e; font-weight: bold;">~$99</span>
+            </div>
+            <p class="cert-desc">Validates core GCP architecture knowledge. A great asset for multi-cloud DevSecOps engineering roles.</p>
+          </div>
+
+        </div>
+
+      </section>
+
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>CloudMap &copy; 2026. Phase 2 learning path notebook page.</p>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

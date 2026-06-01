@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Phase 1: Foundations & Mindset — CloudMap</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="branding">
+      <h1>CloudMap</h1>
+      <p>Phase 1: Foundations & Security Mindset</p>
+    </div>
+    
+    <!-- Chalkboard theme toggle -->
+    <div class="toggle-container" id="theme-toggle" aria-label="Toggle Chalkboard Dark Mode">
+      <span>Sketchbook (Light)</span>
+      <div class="toggle-switch">
+        <div class="toggle-knob"></div>
+      </div>
+      <span>Blackboard (Dark)</span>
+    </div>
+  </header>
+
+  <!-- Content Container -->
+  <main class="phase-container">
+    
+    <!-- Back Button -->
+    <div class="back-btn-container">
+      <a href="index.html" class="sketch-btn">
+        <span>←</span> Back to Dashboard
+      </a>
+    </div>
+
+    <!-- Phase Details Sticker -->
+    <section class="phase-header-block sketch-card solid-border">
+      <div class="phase-title-group">
+        <span class="highlight-cyan" style="color: #083344; font-weight: bold; font-family: 'Architects Daughter'; font-size: 0.95rem;">Phase 1 Overview</span>
+        <h2 style="font-family: 'Architects Daughter'; margin-top: 8px;">Foundations & Security Mindset</h2>
+        <p style="color: var(--text-secondary); margin-top: 4px;">Months 1-2 • Foundational Linux, Networking, Scripting, and OWASP Threat awareness.</p>
+      </div>
+      <div class="phase-meta">
+        <div class="phase-badge-lg" id="phase-badge-p1">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" fill="none" />
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- Phase Two-Column Layout -->
+    <div class="phase-layout">
+      
+      <!-- Left Column: Study Checkboxes -->
+      <section class="phase-objectives-section">
+        <div class="sketch-card">
+          <h3 style="font-family: 'Architects Daughter';">Learning Objectives</h3>
+          <p style="margin-bottom: 20px; font-size: 1rem; color: var(--text-secondary);">Read study materials and tick off objectives as you master them:</p>
+          
+          <!-- Obj 1 -->
+          <label class="checkbox-container">
+            <input type="checkbox" id="p1_obj1" data-phase="1">
+            <span class="sketch-checkbox"></span>
+            <span class="label-text">
+              Linux Essentials: Navigate directories, manage file permissions, and use command pipes/grep.
+              <a href="https://www.edx.org/learn/linux/the-linux-foundation-introduction-to-linux" target="_blank" class="study-link">LFS101x Intro ↗</a>
+              <a href="https://github.com/jlevy/the-art-of-command-line" target="_blank" class="study-link">Command Line Art ↗</a>
+            </span>
+          </label>
+
+          <!-- Obj 2 -->
+          <label class="checkbox-container">
+            <input type="checkbox" id="p1_obj2" data-phase="1">
+            <span class="sketch-checkbox"></span>
+            <span class="label-text">
+              Bash Scripting: Write automation shell scripts for file backups, automation hooks, and parsing logs.
+            </span>
+          </label>
+
+          <!-- Obj 3 -->
+          <label class="checkbox-container">
+            <input type="checkbox" id="p1_obj3" data-phase="1">
+            <span class="sketch-checkbox"></span>
+            <span class="label-text">
+              Networking Essentials: Understand TCP/IP headers, DNS records, HTTP/S status, and TLS handshakes.
+            </span>
+          </label>
+
+          <!-- Obj 4 -->
+          <label class="checkbox-container">
+            <input type="checkbox" id="p1_obj4" data-phase="1">
+            <span class="sketch-checkbox"></span>
+            <span class="label-text">
+              Python Foundations: Learn strings, lists, dictionary maps, the `socket` library, and handling file systems.
+              <a href="https://aws.amazon.com/training/digital/aws-cloud-quest/" target="_blank" class="study-link">AWS Cloud Quest ↗</a>
+            </span>
+          </label>
+
+          <!-- Obj 5 -->
+          <label class="checkbox-container">
+            <input type="checkbox" id="p1_obj5" data-phase="1">
+            <span class="sketch-checkbox"></span>
+            <span class="label-text">
+              Git Version Control: Master command sequences (clone, branch, commit, push, pull requests, merges).
+              <a href="https://github.com/actions/hello-world" target="_blank" class="study-link">GitHub Hello-World ↗</a>
+            </span>
+          </label>
+
+          <!-- Obj 6 -->
+          <label class="checkbox-container">
+            <input type="checkbox" id="p1_obj6" data-phase="1">
+            <span class="sketch-checkbox"></span>
+            <span class="label-text">
+              Security Mindset: Master the CIA Triad, threat modeling principles, and OWASP Top 10 vulnerabilities.
+            </span>
+          </label>
+
+          <!-- Obj 7 -->
+          <label class="checkbox-container">
+            <input type="checkbox" id="p1_obj7" data-phase="1">
+            <span class="sketch-checkbox"></span>
+            <span class="label-text">
+              Cloud Basics: Understand Shared Responsibility, Cloud Console navigation, and pricing structure.
+            </span>
+          </label>
+
+        </div>
+
+        <!-- Capstone Project lined page -->
+        <div class="sketch-card project-journal">
+          <h3 style="font-family: 'Architects Daughter';">Capstone Project Journal</h3>
+          <p>Task Scenario: Build a custom secure port and service scanner CLI tool to evaluate local target system security configurations.</p>
+          
+          <div style="margin-bottom: 20px; font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; line-height: 1.4; border: 1px dashed var(--border-color); padding: 10px; background-color: var(--bg-paper); border-radius: 4px;">
+            [Network Scanner CLI Tool Diagram]<br>
+            Scanner Script (Python) -> Target Range Subnet<br>
+            ├── Checks Open Ports (TCP/IP socket connects)<br>
+            ├── Grabs Service Banner HTTP/SSH<br>
+            └── Generates Scan Report (JSON file / HTML layout)
+          </div>
+
+          <h4 style="font-family: 'Architects Daughter'; margin-bottom: 10px;">Requirement Checklist:</h4>
+          
+          <!-- Req 1 -->
+          <label class="checkbox-container">
+            <input type="checkbox" id="p1_req1" data-phase="1">
+            <span class="sketch-checkbox"></span>
+            <span class="label-text">Write a Python script using standard socket library or `scapy` to check IP target subnets.</span>
+          </label>
+
+          <!-- Req 2 -->
+          <label class="checkbox-container">
+            <input type="checkbox" id="p1_req2" data-phase="1">
+            <span class="sketch-checkbox"></span>
+            <span class="label-text">Identify port state (open/closed) and capture banners (e.g. "Apache 2.4.41", "OpenSSH 8.2").</span>
+          </label>
+
+          <!-- Req 3 -->
+          <label class="checkbox-container">
+            <input type="checkbox" id="p1_req3" data-phase="1">
+            <span class="sketch-checkbox"></span>
+            <span class="label-text">Format output scanner data as structured JSON containing risk severity ratings (Low, Med, High).</span>
+          </label>
+
+          <!-- Req 4 -->
+          <label class="checkbox-container">
+            <input type="checkbox" id="p1_req4" data-phase="1">
+            <span class="sketch-checkbox"></span>
+            <span class="label-text">Generate a printable web-styled HTML report using color codes highlighting active alert warnings.</span>
+          </label>
+
+          <!-- Req 5 -->
+          <label class="checkbox-container">
+            <input type="checkbox" id="p1_req5" data-phase="1">
+            <span class="sketch-checkbox"></span>
+            <span class="label-text">Host on clean Git repository including custom README instructions and basic GitHub linter Actions.</span>
+          </label>
+
+          <div class="project-tools-container">
+            <span class="tool-badge">Python</span>
+            <span class="tool-badge">Bash</span>
+            <span class="tool-badge">Git</span>
+            <span class="tool-badge">VS Code</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Right Column: Certs and badges -->
+      <section class="phase-sidebar-section">
+        
+        <!-- Certifications -->
+        <div class="sketch-card certs-panel">
+          <h3 style="font-family: 'Architects Daughter'; text-align: center; margin-bottom: 18px;">Free Credentials</h3>
+          
+          <!-- Cert 1 -->
+          <div class="cert-card">
+            <div class="cert-title-row">
+              <h4 style="font-family: 'Architects Daughter';">ISC2 CC</h4>
+              <span class="cert-cost highlight-green" style="color: #064e3b; font-weight: bold;">$0 Free</span>
+            </div>
+            <p class="cert-desc">Certified in Cybersecurity. ISC2 is currently sponsoring 1 million exams with free training courses. Ideal for passing HR filters.</p>
+          </div>
+
+          <!-- Cert 2 -->
+          <div class="cert-card">
+            <div class="cert-title-row">
+              <h4 style="font-family: 'Architects Daughter';">AWS Cloud Practitioner</h4>
+              <span class="cert-cost highlight-yellow" style="color: #854d0e; font-weight: bold;">$0 Free Prep</span>
+            </div>
+            <p class="cert-desc">Official AWS digital training and interactive Cloud Quest game covers shared models and console navigation (exam fee is ~$100).</p>
+          </div>
+
+          <!-- Cert 3 -->
+          <div class="cert-card">
+            <div class="cert-title-row">
+              <h4 style="font-family: 'Architects Daughter';">Google Cyber Cert</h4>
+              <span class="cert-cost highlight-green" style="color: #064e3b; font-weight: bold;">$0 Free</span>
+            </div>
+            <p class="cert-desc">Google Cybersecurity Professional Certificate (via Coursera). Apply for financial aid to audit and get full certification for free.</p>
+          </div>
+
+          <!-- Cert 4 -->
+          <div class="cert-card">
+            <div class="cert-title-row">
+              <h4 style="font-family: 'Architects Daughter';">OCI Foundations</h4>
+              <span class="cert-cost highlight-green" style="color: #064e3b; font-weight: bold;">$0 Free</span>
+            </div>
+            <p class="cert-desc">Oracle Cloud Infrastructure Foundations Associate is 100% free including exam and official digital study guides.</p>
+          </div>
+
+        </div>
+
+      </section>
+
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>CloudMap &copy; 2026. Phase 1 learning path notebook page.</p>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

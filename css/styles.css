@@ -1,0 +1,966 @@
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Patrick+Hand&family=JetBrains+Mono:wght@400;500;700&display=swap');
+
+:root {
+  /* Colors for Light Mode (Sketchbook) */
+  --bg-paper: #FAF7F2;
+  --grid-line-color: rgba(68, 119, 170, 0.08);
+  --border-color: #2D2F34;
+  --text-primary: #2D2F34;
+  --text-secondary: #565961;
+  
+  --marker-yellow: rgba(253, 224, 71, 0.45);
+  --marker-cyan: rgba(103, 232, 249, 0.5);
+  --marker-green: rgba(134, 239, 172, 0.5);
+  --marker-violet: rgba(216, 180, 254, 0.5);
+  --marker-red: rgba(252, 165, 165, 0.6);
+  --marker-blue: rgba(147, 197, 253, 0.5);
+  
+  --card-bg: rgba(255, 255, 255, 0.8);
+  --chalk-dust: rgba(0, 0, 0, 0.03);
+  --margin-line: rgba(239, 68, 68, 0.25);
+  
+  --badge-glow: 0 0 10px rgba(253, 224, 71, 0.4);
+}
+
+body.dark-mode {
+  /* Colors for Dark Mode (Blackboard) */
+  --bg-paper: #1B1C1E;
+  --grid-line-color: rgba(255, 255, 255, 0.05);
+  --border-color: #E2E8F0;
+  --text-primary: #F1F5F9;
+  --text-secondary: #94A3B8;
+  
+  --marker-yellow: rgba(234, 179, 8, 0.25);
+  --marker-cyan: rgba(6, 182, 212, 0.25);
+  --marker-green: rgba(34, 197, 94, 0.25);
+  --marker-violet: rgba(168, 85, 247, 0.25);
+  --marker-red: rgba(239, 68, 68, 0.25);
+  --marker-blue: rgba(29, 78, 216, 0.25);
+  
+  --card-bg: rgba(30, 31, 34, 0.85);
+  --chalk-dust: rgba(255, 255, 255, 0.03);
+  --margin-line: rgba(239, 68, 68, 0.15);
+  
+  --badge-glow: 0 0 15px rgba(234, 179, 8, 0.3);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Patrick Hand', cursive, sans-serif;
+  font-size: 20px;
+  line-height: 1.5;
+  color: var(--text-primary);
+  background-color: var(--bg-paper);
+  background-image: 
+    linear-gradient(90deg, var(--grid-line-color) 1px, transparent 1px),
+    linear-gradient(var(--grid-line-color) 1px, transparent 1px);
+  background-size: 24px 24px;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+  padding-bottom: 60px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Notebook Pink Margin Line */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 60px;
+  width: 2px;
+  height: 100%;
+  background-color: var(--margin-line);
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Fonts & Headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Architects Daughter', cursive, sans-serif;
+  font-weight: normal;
+  margin-bottom: 0.5em;
+  line-height: 1.2;
+}
+
+h1 { font-size: 2.5rem; text-align: center; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.4rem; }
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Sketched Card Component */
+.sketch-card {
+  background-color: var(--card-bg);
+  border: 2px dashed var(--border-color);
+  border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+  padding: 24px;
+  margin-bottom: 24px;
+  box-shadow: 4px 4px 0px var(--border-color);
+  position: relative;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.3s ease;
+}
+
+.sketch-card:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px var(--border-color);
+}
+
+.sketch-card.solid-border {
+  border-style: solid;
+  border-width: 2.5px;
+}
+
+/* Hard Sketch Button */
+.sketch-btn {
+  font-family: 'Architects Daughter', cursive, sans-serif;
+  background-color: transparent;
+  color: var(--text-primary);
+  border: 2px solid var(--border-color);
+  border-radius: 120px 10px 90px 10px / 10px 90px 10px 120px;
+  padding: 8px 18px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 3px 3px 0px var(--border-color);
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+  user-select: none;
+}
+
+.sketch-btn:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 4px 4px 0px var(--border-color);
+}
+
+.sketch-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0px var(--border-color);
+}
+
+/* Highlighter Fills */
+.highlight-yellow { background-color: var(--marker-yellow); border-radius: 4px; padding: 2px 6px; }
+.highlight-cyan { background-color: var(--marker-cyan); border-radius: 4px; padding: 2px 6px; }
+.highlight-green { background-color: var(--marker-green); border-radius: 4px; padding: 2px 6px; }
+.highlight-violet { background-color: var(--marker-violet); border-radius: 4px; padding: 2px 6px; }
+.highlight-red { background-color: var(--marker-red); border-radius: 4px; padding: 2px 6px; }
+.highlight-blue { background-color: var(--marker-blue); border-radius: 4px; padding: 2px 6px; }
+
+/* Custom Checkbox */
+.checkbox-container {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  cursor: pointer;
+  margin-bottom: 12px;
+  user-select: none;
+}
+
+.checkbox-container input {
+  display: none;
+}
+
+.sketch-checkbox {
+  width: 24px;
+  height: 24px;
+  border: 2px solid var(--border-color);
+  border-radius: 5px 3px 5px 3px / 3px 5px 3px 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 3px;
+  position: relative;
+  background-color: var(--card-bg);
+  transition: background-color 0.2s ease;
+}
+
+.checkbox-container:hover .sketch-checkbox {
+  background-color: var(--marker-yellow);
+}
+
+/* Dynamic Hand-Drawn Checkmark X */
+.sketch-checkbox::after {
+  content: "X";
+  font-family: 'Architects Daughter', cursive, sans-serif;
+  font-size: 1.1rem;
+  color: var(--text-primary);
+  position: absolute;
+  font-weight: bold;
+  opacity: 0;
+  transform: scale(0.5) rotate(-15deg);
+  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.15s ease;
+}
+
+.checkbox-container input:checked + .sketch-checkbox::after {
+  opacity: 1;
+  transform: scale(1) rotate(5deg);
+}
+
+.checkbox-container input:checked ~ .label-text {
+  text-decoration: line-through;
+  opacity: 0.7;
+}
+
+.label-text {
+  transition: opacity 0.2s ease, text-decoration 0.2s ease;
+  font-size: 1.1rem;
+}
+
+/* Header & Navigation */
+header {
+  max-width: 1000px;
+  margin: 30px auto 10px auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.branding {
+  display: flex;
+  flex-direction: column;
+}
+
+.branding h1 {
+  text-align: left;
+  font-size: 2.8rem;
+  margin-bottom: 0;
+  display: inline-block;
+  position: relative;
+}
+
+/* Handwritten Underline Doodle */
+.branding h1::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 100%;
+  height: 6px;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 10' preserveAspectRatio='none'><path d='M0,5 Q50,0 100,5 Q50,10 0,5' fill='none' stroke='%232D2F34' stroke-width='2'/></svg>");
+  background-size: 100% 100%;
+}
+
+body.dark-mode .branding h1::after {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 10' preserveAspectRatio='none'><path d='M0,5 Q50,0 100,5 Q50,10 0,5' fill='none' stroke='%23E2E8F0' stroke-width='2'/></svg>");
+}
+
+.branding p {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  margin-top: 4px;
+}
+
+/* Dark Mode Chalkboard Toggle */
+.toggle-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  user-select: none;
+  font-family: 'Architects Daughter', cursive, sans-serif;
+  font-size: 1rem;
+}
+
+.toggle-switch {
+  width: 60px;
+  height: 30px;
+  border: 2px solid var(--border-color);
+  border-radius: 15px;
+  position: relative;
+  background-color: var(--card-bg);
+  transition: background-color 0.2s ease;
+}
+
+.toggle-knob {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background-color: var(--border-color);
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  transition: transform 0.25s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+body.dark-mode .toggle-knob {
+  transform: translateX(30px);
+  background-color: #F1F5F9;
+}
+
+/* Dashboard Hub Grid */
+.dashboard-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Sketched Progress Section */
+.progress-section {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 20px;
+  margin-bottom: 24px;
+}
+
+@media (max-width: 768px) {
+  .progress-section {
+    grid-template-columns: 1fr;
+  }
+}
+
+.progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 10px;
+}
+
+.progress-percentage {
+  font-family: 'Architects Daughter', cursive, sans-serif;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+/* Crayon/Pencil Shaded Progress Bar */
+.progress-bar-container {
+  height: 26px;
+  border: 2px solid var(--border-color);
+  border-radius: 13px;
+  background-color: var(--bg-paper);
+  overflow: hidden;
+  position: relative;
+  box-shadow: inset 1px 1px 3px rgba(0,0,0,0.1);
+}
+
+.progress-bar-fill {
+  height: 100%;
+  width: 0%;
+  background-color: var(--marker-yellow);
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 4px,
+    rgba(0, 0, 0, 0.08) 4px,
+    rgba(0, 0, 0, 0.08) 8px
+  );
+  border-radius: 11px 0 0 11px;
+  transition: width 0.8s cubic-bezier(0.1, 0.8, 0.2, 1);
+  position: relative;
+}
+
+body.dark-mode .progress-bar-fill {
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 4px,
+    rgba(255, 255, 255, 0.1) 4px,
+    rgba(255, 255, 255, 0.1) 8px
+  );
+}
+
+/* Trophy Badge Shelf */
+.badge-shelf {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 8px;
+  padding: 10px;
+  border-top: 2px dashed var(--border-color);
+  margin-top: 10px;
+}
+
+.badge-item {
+  width: 48px;
+  height: 48px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.badge-item svg {
+  width: 100%;
+  height: 100%;
+  fill: none;
+  stroke: var(--border-color);
+  stroke-width: 1.5;
+  transition: stroke 0.3s ease, filter 0.3s ease;
+  filter: grayscale(1) opacity(0.3);
+}
+
+.badge-item.unlocked {
+  filter: none;
+  transform: scale(1.1);
+  animation: bounce-badge 1s ease infinite alternate;
+}
+
+.badge-item.unlocked svg {
+  filter: drop-shadow(var(--badge-glow));
+  stroke-width: 2;
+}
+
+@keyframes bounce-badge {
+  0% { transform: translateY(0) scale(1.1); }
+  100% { transform: translateY(-4px) scale(1.15); }
+}
+
+.badge-item .tooltip {
+  position: absolute;
+  bottom: 56px;
+  background-color: var(--border-color);
+  color: var(--bg-paper);
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(5px);
+  transition: opacity 0.2s, transform 0.2s;
+  z-index: 10;
+  font-family: 'Architects Daughter', cursive, sans-serif;
+  border: 1px solid var(--border-color);
+}
+
+.badge-item:hover .tooltip {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* Interactive Roadmap Board Layout */
+.roadmap-board {
+  display: grid;
+  grid-template-columns: 1.8fr 1fr;
+  gap: 24px;
+  margin-bottom: 28px;
+  align-items: stretch;
+}
+
+@media (max-width: 900px) {
+  .roadmap-board {
+    grid-template-columns: 1fr;
+  }
+}
+
+.roadmap-svg-card {
+  padding: 24px;
+  margin-bottom: 0; /* Align with adjacent preview note */
+}
+
+.roadmap-svg-container {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.roadmap-svg {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+/* Static Guide Line - Looks like Dotted Pencil Sketch */
+.pencil-path {
+  fill: none;
+  stroke: var(--border-color);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-dasharray: 6 6;
+  opacity: 0.25;
+}
+
+/* Glowing Highlighter Flow Segment */
+.ink-path {
+  fill: none;
+  stroke-width: 6;
+  stroke-linecap: round;
+  stroke-dasharray: 450;
+  stroke-dashoffset: 450; /* initially hidden */
+  transition: stroke-dashoffset 1.8s cubic-bezier(0.25, 1, 0.5, 1);
+  filter: drop-shadow(0px 0px 4px rgba(255,255,255,0.2));
+}
+
+.ink-path.p1 { stroke: #06b6d4; } /* Cyan highlighter */
+.ink-path.p2 { stroke: #3b82f6; } /* Blue ink */
+.ink-path.p3 { stroke: #22c55e; } /* Green highlighter */
+.ink-path.p4 { stroke: #a855f7; } /* Violet highlighter */
+
+.node-group {
+  cursor: pointer;
+}
+
+.node-circle {
+  fill: var(--bg-paper);
+  stroke: var(--border-color);
+  stroke-width: 2.5;
+  transition: fill 0.3s ease, stroke-width 0.2s ease, transform 0.2s ease;
+  transform-origin: center;
+}
+
+/* Custom Vector Icons Inside Node Circles */
+.node-icon {
+  fill: none;
+  stroke: var(--border-color);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  pointer-events: none;
+  transition: stroke 0.3s ease, stroke-width 0.2s ease;
+}
+
+.node-group:hover .node-circle {
+  stroke-width: 4;
+  stroke: #d97706; /* warm gold ink outline */
+  filter: drop-shadow(0px 0px 5px rgba(217, 119, 6, 0.45));
+}
+
+body.dark-mode .node-group:hover .node-circle {
+  stroke: #fde047; /* bright yellow chalk outline */
+  filter: drop-shadow(0px 0px 8px rgba(253, 224, 71, 0.45));
+}
+
+.node-group:hover .node-icon {
+  stroke-width: 2.5;
+  stroke: #d97706;
+}
+
+body.dark-mode .node-group:hover .node-icon {
+  stroke: #fde047;
+}
+
+/* Current target node has dashed rotating halo */
+.node-group.current-active .node-circle {
+  stroke-width: 3.5;
+  stroke-dasharray: 5 3;
+  animation: rotate-active-node 12s linear infinite;
+}
+
+@keyframes rotate-active-node {
+  to {
+    stroke-dashoffset: -40;
+  }
+}
+
+.node-pulse {
+  display: none;
+}
+
+/* Node completed marker-highlights */
+.node-group.p1.completed .node-circle { fill: var(--marker-cyan); }
+.node-group.p2.completed .node-circle { fill: var(--marker-cyan); }
+.node-group.p3.completed .node-circle { fill: var(--marker-green); }
+.node-group.p4.completed .node-circle { fill: var(--marker-green); }
+.node-group.p5.completed .node-circle { fill: var(--marker-violet); }
+
+.node-group.completed .node-icon {
+  stroke: var(--text-primary);
+  stroke-width: 2.5;
+}
+
+.node-text {
+  font-family: 'Architects Daughter', cursive, sans-serif;
+  font-size: 13px;
+  fill: var(--text-primary);
+  font-weight: bold;
+  pointer-events: none;
+}
+
+.node-subtext {
+  font-family: 'Patrick Hand', cursive, sans-serif;
+  font-size: 12px;
+  fill: var(--text-secondary);
+  pointer-events: none;
+}
+
+/* Interactive Sticky Note Preview pad */
+.preview-note {
+  background-color: #FFFDF0; /* Light Mode: warm yellow legal notepad */
+  border-style: solid;
+  border-width: 2.5px;
+  transform: rotate(1.2deg);
+  margin-bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+body.dark-mode .preview-note {
+  background-color: #212623; /* Dark Mode: dark chalkboard/slate olive green */
+}
+
+.preview-note:hover {
+  transform: scale(1.02) rotate(-0.5deg);
+}
+
+.tape-doodle {
+  position: absolute;
+  top: -14px;
+  left: 38%;
+  width: 76px;
+  height: 26px;
+  background-color: rgba(251, 191, 36, 0.35); /* semi-transparent yellow masking tape */
+  transform: rotate(-3deg);
+  border-left: 2px dashed rgba(0,0,0,0.15);
+  border-right: 2px dashed rgba(0,0,0,0.15);
+  box-shadow: 1px 1px 2px rgba(0,0,0,0.05);
+}
+
+body.dark-mode .tape-doodle {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.preview-tag {
+  font-family: 'Architects Daughter', cursive, sans-serif;
+  font-size: 0.85rem;
+  padding: 1px 6px;
+  border-radius: 4px;
+  display: inline-block;
+  margin-bottom: 6px;
+}
+
+/* Milestone Cards Grid */
+.milestones-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  margin-top: 24px;
+}
+
+.milestone-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  border-bottom: 2px dashed var(--border-color);
+  padding-bottom: 8px;
+}
+
+.milestone-duration {
+  font-size: 0.9rem;
+  font-family: 'Architects Daughter', cursive, sans-serif;
+  padding: 2px 8px;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+}
+
+.milestone-desc {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  margin-bottom: 16px;
+}
+
+.milestone-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.milestone-pct {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.milestone-arrow {
+  font-size: 1.3rem;
+  transition: transform 0.2s ease;
+}
+
+.sketch-card:hover .milestone-arrow {
+  transform: translateX(4px);
+}
+
+/* Phase Pages layout */
+.phase-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.back-btn-container {
+  margin-bottom: 20px;
+}
+
+.phase-header-block {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 24px;
+  border-bottom: 3px dashed var(--border-color);
+  padding-bottom: 16px;
+}
+
+.phase-title-group h2 {
+  font-size: 2.2rem;
+  margin-bottom: 4px;
+}
+
+.phase-meta {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.phase-badge-lg {
+  width: 56px;
+  height: 56px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.phase-badge-lg svg {
+  width: 100%;
+  height: 100%;
+  fill: none;
+  stroke: var(--border-color);
+  stroke-width: 1.5;
+}
+
+.phase-badge-lg.unlocked svg {
+  filter: drop-shadow(var(--badge-glow));
+  stroke-width: 2.5;
+  animation: pulse-badge 2s infinite alternate;
+}
+
+@keyframes pulse-badge {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.1); }
+}
+
+.phase-layout {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: 24px;
+}
+
+@media (max-width: 768px) {
+  .phase-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.phase-objectives-section h3 {
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: 4px;
+  margin-bottom: 16px;
+  display: inline-block;
+}
+
+.study-link {
+  font-size: 0.85rem;
+  margin-left: 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  color: var(--text-secondary);
+  border-bottom: 1px dashed var(--text-secondary);
+  font-family: 'Patrick Hand', cursive, sans-serif;
+  vertical-align: middle;
+}
+
+.study-link:hover {
+  color: var(--text-primary);
+  border-bottom-style: solid;
+}
+
+/* Capstone Project Card styled as Lined Journal Page */
+.project-journal {
+  background-color: var(--card-bg);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+  background-size: 100% 28px;
+  border-left: 6px double var(--border-color);
+  border-radius: 4px;
+  line-height: 28px;
+}
+
+body.dark-mode .project-journal {
+  background-image: linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+}
+
+.project-journal h3 {
+  line-height: 1.2;
+  margin-bottom: 12px;
+}
+
+.project-journal p {
+  margin-bottom: 16px;
+  font-style: italic;
+  font-size: 1.05rem;
+}
+
+.project-details-list {
+  list-style-type: none;
+  margin-bottom: 20px;
+}
+
+.project-details-list li {
+  padding-left: 20px;
+  position: relative;
+  margin-bottom: 8px;
+}
+
+.project-details-list li::before {
+  content: '•';
+  font-size: 1.4rem;
+  position: absolute;
+  left: 0;
+  top: -2px;
+  color: var(--text-primary);
+}
+
+.project-tools-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.tool-badge {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.85rem;
+  border: 1.5px solid var(--border-color);
+  border-radius: 8px;
+  padding: 2px 8px;
+  background-color: var(--bg-paper);
+}
+
+/* Certifications Panel */
+.certs-panel {
+  border-color: var(--border-color);
+  border-width: 2px;
+}
+
+.cert-card {
+  border: 1.5px dashed var(--border-color);
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 16px;
+  background-color: var(--bg-paper);
+}
+
+.cert-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 6px;
+}
+
+.cert-title-row h4 {
+  font-size: 1.15rem;
+  margin-bottom: 0;
+}
+
+.cert-cost {
+  font-family: 'Architects Daughter', cursive, sans-serif;
+  font-size: 0.9rem;
+  padding: 1px 6px;
+  border-radius: 4px;
+}
+
+.cert-desc {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+}
+
+/* Custom Hand-Drawn Alert Modal */
+.doodle-alert-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(2px);
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.doodle-alert-overlay.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.doodle-alert {
+  background-color: var(--bg-paper);
+  border: 3px solid var(--border-color);
+  border-radius: 20px 80px 20px 80px / 80px 20px 80px 20px;
+  padding: 30px;
+  max-width: 450px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 8px 8px 0px var(--border-color);
+  transform: scale(0.85);
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.doodle-alert-overlay.visible .doodle-alert {
+  transform: scale(1);
+}
+
+.doodle-alert h3 {
+  font-size: 1.8rem;
+  margin-bottom: 12px;
+}
+
+.doodle-alert p {
+  margin-bottom: 20px;
+}
+
+.doodle-alert-icon {
+  font-size: 3rem;
+  margin-bottom: 12px;
+  display: block;
+}
+
+/* Footer Section */
+footer {
+  max-width: 1000px;
+  margin: 40px auto 0 auto;
+  padding: 20px;
+  text-align: center;
+  border-top: 2px dashed var(--border-color);
+  color: var(--text-secondary);
+  font-size: 1rem;
+}
+
+/* Printing styles for workbook extraction */
+@media print {
+  body {
+    background-color: #ffffff;
+    background-image: none;
+    color: #000000;
+  }
+  body::before { display: none; }
+  .sketch-card {
+    border-style: solid;
+    box-shadow: none !important;
+    background: transparent !important;
+    page-break-inside: avoid;
+  }
+  .toggle-container, .back-btn-container, .sketch-btn { display: none !important; }
+  header, footer { page-break-after: always; }
+}

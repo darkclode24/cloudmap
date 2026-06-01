@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Phase 4: Compliance & Monitoring — CloudMap</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="branding">
+      <h1>CloudMap</h1>
+      <p>Phase 4: Compliance, Monitoring & Incident Response</p>
+    </div>
+    
+    <!-- Chalkboard theme toggle -->
+    <div class="toggle-container" id="theme-toggle" aria-label="Toggle Chalkboard Dark Mode">
+      <span>Sketchbook (Light)</span>
+      <div class="toggle-switch">
+        <div class="toggle-knob"></div>
+      </div>
+      <span>Blackboard (Dark)</span>
+    </div>
+  </header>
+
+  <!-- Content Container -->
+  <main class="phase-container">
+    
+    <!-- Back Button -->
+    <div class="back-btn-container">
+      <a href="index.html" class="sketch-btn">
+        <span>←</span> Back to Dashboard
+      </a>
+    </div>
+
+    <!-- Phase Details Sticker -->
+    <section class="phase-header-block sketch-card solid-border">
+      <div class="phase-title-group">
+        <span class="highlight-green" style="color: #064e3b; font-weight: bold; font-family: 'Architects Daughter'; font-size: 0.95rem;">Phase 4 Overview</span>
+        <h2 style="font-family: 'Architects Daughter'; margin-top: 8px;">Compliance, Monitoring & Incident Response</h2>
+        <p style="color: var(--text-secondary); margin-top: 4px;">Months 9-10 • Standard compliance frameworks, OpenSCAP auditing, Policy-as-Code (OPA/Rego), cloud-native logging SIEM alert architectures, and Incident Response containment.</p>
+      </div>
+      <div class="phase-meta">
+        <div class="phase-badge-lg" id="phase-badge-p4">
+          <svg viewBox="0 0 24 24">
+            <circle cx="11" cy="11" r="8" fill="none" />
+            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- Phase Two-Column Layout -->
+    <div class="phase-layout">
+      
+      <!-- Left Column: Study Checkboxes -->
+      <section class="phase-objectives-section">
+        <div class="sketch-card">
+          <h3 style="font-family: 'Architects Daughter';">Learning Objectives</h3>
+          <p style="margin-bottom: 20px; font-size: 1rem; color: var(--text-secondary);">Read study materials and tick off objectives as you master them:</p>
+          
+          <!-- Obj 1 -->
+          <label class="checkbox-container">
+            <input type="checkbox" id="p4_obj1" data-phase="4">
+            <span class="sketch-checkbox"></span>
+            <span class="label-text">
+              Compliance Standard Frameworks: Learn CIS Benchmarks, NIST 800-53 controls, SOC 2, HIPAA, and PCI-DSS compliance demands.
+            </span>
+          </label>
+
+          <!-- Obj 2 -->
+          <label class="checkbox-container">
+            <input type="checkbox" id="p4_obj2" data-phase="4">
+            <span class="sketch-checkbox"></span>
+            <span class="label-text">
+              Compliance Auditing: Deploy OpenSCAP scanners utilizing XCCDF and OVAL security baselines to audit host safety.
+              <a href="https://www.open-scap.org/resources/documentation/" target="_blank" class="study-link">OpenSCAP Guides ↗</a>
+            </span>
+          </label>
+
+          <!-- Obj 3 -->
+          <label class="checkbox-container">
+            <input type="checkbox" id="p4_obj3" data-phase="4">
+            <span class="sketch-checkbox"></span>
+            <span class="label-text">
+              Policy-as-Code (PaC): Define cloud architecture guidelines using Open Policy Agent (OPA) and the Rego policy language.
+              <a href="https://academy.styra.com/" target="_blank" class="study-link">Styra Rego Academy ↗</a>
+            </span>
+          </label>
+
+          <!-- Obj 4 -->
+          <label class="checkbox-container">
+            <input type="checkbox" id="p4_obj4" data-phase="4">
+            <span class="sketch-checkbox"></span>
+            <span class="label-text">
+              Cloud Auditing Logs: Configure AWS CloudWatch and CloudTrail monitors, CloudTrail alerts, and GuardDuty detectors.
+            </span>
+          </label>
+
+          <!-- Obj 5 -->
+          <label class="checkbox-container">
+            <input type="checkbox" id="p4_obj5" data-phase="4">
+            <span class="sketch-checkbox"></span>
+            <span class="label-text">
+              Centralized SIEM Logging: Deploy ELK stack (Elastic, Logstash, Kibana) or Prometheus/Grafana interfaces to aggregate threat vectors.
+            </span>
+          </label>
+
+          <!-- Obj 6 -->
+          <label class="checkbox-container">
+            <input type="checkbox" id="p4_obj6" data-phase="4">
+            <span class="sketch-checkbox"></span>
+            <span class="label-text">
+              Incident Response Cycle: Practice threat triaging, containment scripting, mitigation logs, and post-incident reporting.
+            </span>
+          </label>
+
+        </div>
+
+        <!-- Capstone Project lined page -->
+        <div class="sketch-card project-journal">
+          <h3 style="font-family: 'Architects Daughter';">Capstone Project Journal</h3>
+          <p>Task Scenario: Build a centralized compliance audit engine and alert automation framework combining OpenSCAP, OPA policies, and Slack/Discord webhooks.</p>
+          
+          <div style="margin-bottom: 20px; font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; line-height: 1.4; border: 1px dashed var(--border-color); padding: 10px; background-color: var(--bg-paper); border-radius: 4px;">
+            [Compliance & SIEM Pipeline Diagram]<br>
+            Crontab scheduling OpenSCAP checks -> Output security baseline report<br>
+            ├── If OS deviates from CIS Profile -> Trigger alert script<br>
+            ├── OPA policies intercept K8s requests -> Refuse non-least privilege resources<br>
+            └── AWS GuardDuty finds compromised key -> Pushes high-priority alert to Webhook
+          </div>
+
+          <h4 style="font-family: 'Architects Daughter'; margin-bottom: 10px;">Requirement Checklist:</h4>
+          
+          <!-- Req 1 -->
+          <label class="checkbox-container">
+            <input type="checkbox" id="p4_req1" data-phase="4">
+            <span class="sketch-checkbox"></span>
+            <span class="label-text">Deploy scheduled OpenSCAP scanning via Ansible playbooks using target CIS Level 1 baselines.</span>
+          </label>
+
+          <!-- Req 2 -->
+          <label class="checkbox-container">
+            <input type="checkbox" id="p4_req2" data-phase="4">
+            <span class="sketch-checkbox"></span>
+            <span class="label-text">Author OPA policies (`Rego` language) that scan and block deployment of non-secure Kubernetes templates.</span>
+          </label>
+
+          <!-- Req 3 -->
+          <label class="checkbox-container">
+            <input type="checkbox" id="p4_req3" data-phase="4">
+            <span class="sketch-checkbox"></span>
+            <span class="label-text">Write a Python script that parses compliance outputs and system logs, aggregating threat counts.</span>
+          </label>
+
+          <!-- Req 4 -->
+          <label class="checkbox-container">
+            <input type="checkbox" id="p4_req4" data-phase="4">
+            <span class="sketch-checkbox"></span>
+            <span class="label-text">Draft a clear Incident Response Playbook (Markdown format) outlining responses to simulated credential leaks.</span>
+          </label>
+
+          <!-- Req 5 -->
+          <label class="checkbox-container">
+            <input type="checkbox" id="p4_req5" data-phase="4">
+            <span class="sketch-checkbox"></span>
+            <span class="label-text">Setup alert integrations forwarding AWS GuardDuty events directly to Slack webhooks via lambda functions.</span>
+          </label>
+
+          <!-- Req 6 -->
+          <label class="checkbox-container">
+            <input type="checkbox" id="p4_req6" data-phase="4">
+            <span class="sketch-checkbox"></span>
+            <span class="label-text">Draft a complete post-incident forensic evaluation report template.</span>
+          </label>
+
+          <div class="project-tools-container">
+            <span class="tool-badge">OpenSCAP</span>
+            <span class="tool-badge">OPA (Rego)</span>
+            <span class="tool-badge">AWS GuardDuty</span>
+            <span class="tool-badge">Grafana</span>
+            <span class="tool-badge">Python</span>
+            <span class="tool-badge">YAML / JSON</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Right Column: Certs and badges -->
+      <section class="phase-sidebar-section">
+        
+        <!-- Certifications -->
+        <div class="sketch-card certs-panel">
+          <h3 style="font-family: 'Architects Daughter'; text-align: center; margin-bottom: 18px;">Certifications</h3>
+          
+          <!-- Cert 1 -->
+          <div class="cert-card">
+            <div class="cert-title-row">
+              <h4 style="font-family: 'Architects Daughter';">Qualys VMDR Specialist</h4>
+              <span class="cert-cost highlight-green" style="color: #064e3b; font-weight: bold;">$0 Free</span>
+            </div>
+            <p class="cert-desc">Qualys Certified Specialist (VMDR). The entire training academy and proctored certification exam is 100% free.</p>
+          </div>
+
+          <!-- Cert 2 -->
+          <div class="cert-card">
+            <div class="cert-title-row">
+              <h4 style="font-family: 'Architects Daughter';">Microsoft SC-200</h4>
+              <span class="cert-cost highlight-yellow" style="color: #854d0e; font-weight: bold;">~$165</span>
+            </div>
+            <p class="cert-desc">Microsoft Security Operations Analyst. Focuses on Microsoft Sentinel, Defender configuration, and threat detection.</p>
+          </div>
+
+          <!-- Cert 3 -->
+          <div class="cert-card">
+            <div class="cert-title-row">
+              <h4 style="font-family: 'Architects Daughter';">CompTIA Security+</h4>
+              <span class="cert-cost highlight-yellow" style="color: #854d0e; font-weight: bold;">~$404</span>
+            </div>
+            <p class="cert-desc">Core baseline security certification. Highly valued by HR gatekeepers. Vouchers and student discounts are widely available.</p>
+          </div>
+
+          <!-- Cert 4 -->
+          <div class="cert-card">
+            <div class="cert-title-row">
+              <h4 style="font-family: 'Architects Daughter';">CSA CCSK</h4>
+              <span class="cert-cost highlight-yellow" style="color: #854d0e; font-weight: bold;">~$395</span>
+            </div>
+            <p class="cert-desc">Certificate of Cloud Security Knowledge by Cloud Security Alliance. Highly respected vendor-neutral cloud certification.</p>
+          </div>
+
+        </div>
+
+      </section>
+
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>CloudMap &copy; 2026. Phase 4 learning path notebook page.</p>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

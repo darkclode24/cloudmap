@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Phase 3: CI/CD & AppSec — CloudMap</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="branding">
+      <h1>CloudMap</h1>
+      <p>Phase 3: CI/CD Pipeline Security & AppSec</p>
+    </div>
+    
+    <!-- Chalkboard theme toggle -->
+    <div class="toggle-container" id="theme-toggle" aria-label="Toggle Chalkboard Dark Mode">
+      <span>Sketchbook (Light)</span>
+      <div class="toggle-switch">
+        <div class="toggle-knob"></div>
+      </div>
+      <span>Blackboard (Dark)</span>
+    </div>
+  </header>
+
+  <!-- Content Container -->
+  <main class="phase-container">
+    
+    <!-- Back Button -->
+    <div class="back-btn-container">
+      <a href="index.html" class="sketch-btn">
+        <span>←</span> Back to Dashboard
+      </a>
+    </div>
+
+    <!-- Phase Details Sticker -->
+    <section class="phase-header-block sketch-card solid-border">
+      <div class="phase-title-group">
+        <span class="highlight-green" style="color: #064e3b; font-weight: bold; font-family: 'Architects Daughter'; font-size: 0.95rem;">Phase 3 Overview</span>
+        <h2 style="font-family: 'Architects Daughter'; margin-top: 8px;">CI/CD Pipeline Security & AppSec</h2>
+        <p style="color: var(--text-secondary); margin-top: 4px;">Months 6-8 • Secure pipeline creation, container security (Docker), SAST/DAST, SCA dependency checks, and Supply Chain security.</p>
+      </div>
+      <div class="phase-meta">
+        <div class="phase-badge-lg" id="phase-badge-p3">
+          <svg viewBox="0 0 24 24">
+            <path d="M21.5 2v6h-6 M21.34 15.57a10 10 0 1 1-.57-8.38l.73-.73" fill="none" />
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- Phase Two-Column Layout -->
+    <div class="phase-layout">
+      
+      <!-- Left Column: Study Checkboxes -->
+      <section class="phase-objectives-section">
+        <div class="sketch-card">
+          <h3 style="font-family: 'Architects Daughter';">Learning Objectives</h3>
+          <p style="margin-bottom: 20px; font-size: 1rem; color: var(--text-secondary);">Read study materials and tick off objectives as you master them:</p>
+          
+          <!-- Obj 1 -->
+          <label class="checkbox-container">
+            <input type="checkbox" id="p3_obj1" data-phase="3">
+            <span class="sketch-checkbox"></span>
+            <span class="label-text">
+              CI/CD Workflows: Master automation hooks, workflows, and secret security in GitHub Actions or GitLab CI.
+            </span>
+          </label>
+
+          <!-- Obj 2 -->
+          <label class="checkbox-container">
+            <input type="checkbox" id="p3_obj2" data-phase="3">
+            <span class="sketch-checkbox"></span>
+            <span class="label-text">
+              Static Code Security: Integrate SAST scans (Semgrep/SonarQube) to identify bugs and vulnerable code practices.
+            </span>
+          </label>
+
+          <!-- Obj 3 -->
+          <label class="checkbox-container">
+            <input type="checkbox" id="p3_obj3" data-phase="3">
+            <span class="sketch-checkbox"></span>
+            <span class="label-text">
+              Dependency Composition: Audit open-source libraries and transitive dependencies using Snyk or Trivy.
+              <a href="https://learn.snyk.io/" target="_blank" class="study-link">Snyk Learn AppSec ↗</a>
+              <a href="https://aquasecurity.github.io/trivy/v0.48.0/" target="_blank" class="study-link">Trivy Docs ↗</a>
+            </span>
+          </label>
+
+          <!-- Obj 4 -->
+          <label class="checkbox-container">
+            <input type="checkbox" id="p3_obj4" data-phase="3">
+            <span class="sketch-checkbox"></span>
+            <span class="label-text">
+              Docker Hardening: Structure secure multi-stage Dockerfiles utilizing minimal Alpine or Distroless base images and non-root users.
+              <a href="https://wiz.io/academy" target="_blank" class="study-link">Wiz Container Academy ↗</a>
+            </span>
+          </label>
+
+          <!-- Obj 5 -->
+          <label class="checkbox-container">
+            <input type="checkbox" id="p3_obj5" data-phase="3">
+            <span class="sketch-checkbox"></span>
+            <span class="label-text">
+              Dynamic Security: Conduct automated DAST runs (OWASP ZAP) against staging web deployments to locate live vulnerabilities.
+              <a href="https://owasp.org/www-project-juice-shop/" target="_blank" class="study-link">OWASP Juice Shop ↗</a>
+            </span>
+          </label>
+
+          <!-- Obj 6 -->
+          <label class="checkbox-container">
+            <input type="checkbox" id="p3_obj6" data-phase="3">
+            <span class="sketch-checkbox"></span>
+            <span class="label-text">
+              Supply Chain Protection: Learn Software Bill of Materials (SBOM) generation (Syft) and binary artifact signing (Cosign).
+            </span>
+          </label>
+
+          <!-- Obj 7 -->
+          <label class="checkbox-container">
+            <input type="checkbox" id="p3_obj7" data-phase="3">
+            <span class="sketch-checkbox"></span>
+            <span class="label-text">
+              Go Programming: Grasp baseline Go language syntax, standard library, and building lightweight system automation binaries.
+            </span>
+          </label>
+
+        </div>
+
+        <!-- Capstone Project lined page -->
+        <div class="sketch-card project-journal">
+          <h3 style="font-family: 'Architects Daughter';">Capstone Project Journal</h3>
+          <p>Task Scenario: Build a complete secure CI/CD pipeline for a containerized web application, implementing shift-left security checks at every milestone.</p>
+          
+          <div style="margin-bottom: 20px; font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; line-height: 1.4; border: 1px dashed var(--border-color); padding: 10px; background-color: var(--bg-paper); border-radius: 4px;">
+            [Secure CI/CD Pipeline Diagram]<br>
+            Developer Commit -> Push to GitHub<br>
+            ├── Job 1: SAST (Semgrep code scan)<br>
+            ├── Job 2: SCA (Trivy scans package-lock/npm dependencies)<br>
+            ├── Job 3: Build & Hardened Container Image Scan (Trivy docker scan)<br>
+            ├── Job 4: Deploy & Generate SBOM (Syft tools)<br>
+            └── Job 5: DAST (OWASP ZAP active scan against live web service)
+          </div>
+
+          <h4 style="font-family: 'Architects Daughter'; margin-bottom: 10px;">Requirement Checklist:</h4>
+          
+          <!-- Req 1 -->
+          <label class="checkbox-container">
+            <input type="checkbox" id="p3_req1" data-phase="3">
+            <span class="sketch-checkbox"></span>
+            <span class="label-text">Design a multi-stage Dockerfile that executes under a non-privileged system user and utilizes a secure Distroless image.</span>
+          </label>
+
+          <!-- Req 2 -->
+          <label class="checkbox-container">
+            <input type="checkbox" id="p3_req2" data-phase="3">
+            <span class="sketch-checkbox"></span>
+            <span class="label-text">Integrate a SAST scan step (using `Semgrep`) inside your GitHub Actions pipeline checking for code vulnerabilities.</span>
+          </label>
+
+          <!-- Req 3 -->
+          <label class="checkbox-container">
+            <input type="checkbox" id="p3_req3" data-phase="3">
+            <span class="sketch-checkbox"></span>
+            <span class="label-text">Configure Snyk/Trivy container scanning steps that verify image package safety prior to registry upload.</span>
+          </label>
+
+          <!-- Req 4 -->
+          <label class="checkbox-container">
+            <input type="checkbox" id="p3_req4" data-phase="3">
+            <span class="sketch-checkbox"></span>
+            <span class="label-text">Generate a formal Software Bill of Materials (SBOM) using `Syft` and store it as a pipeline artifact.</span>
+          </label>
+
+          <!-- Req 5 -->
+          <label class="checkbox-container">
+            <input type="checkbox" id="p3_req5" data-phase="3">
+            <span class="sketch-checkbox"></span>
+            <span class="label-text">Deploy target application to a local cluster and execute an automated DAST baseline run (OWASP ZAP).</span>
+          </label>
+
+          <!-- Req 6 -->
+          <label class="checkbox-container">
+            <input type="checkbox" id="p3_req6" data-phase="3">
+            <span class="sketch-checkbox"></span>
+            <span class="label-text">Configure pipeline gates to fail the build if scans identify ANY High or Critical risk items.</span>
+          </label>
+
+          <div class="project-tools-container">
+            <span class="tool-badge">GitHub Actions</span>
+            <span class="tool-badge">Docker</span>
+            <span class="tool-badge">Semgrep</span>
+            <span class="tool-badge">Trivy</span>
+            <span class="tool-badge">Snyk</span>
+            <span class="tool-badge">OWASP ZAP</span>
+            <span class="tool-badge">Go</span>
+            <span class="tool-badge">Syft</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Right Column: Certs and badges -->
+      <section class="phase-sidebar-section">
+        
+        <!-- Certifications -->
+        <div class="sketch-card certs-panel">
+          <h3 style="font-family: 'Architects Daughter'; text-align: center; margin-bottom: 18px;">Certifications</h3>
+          
+          <!-- Cert 1 -->
+          <div class="cert-card">
+            <div class="cert-title-row">
+              <h4 style="font-family: 'Architects Daughter';">Snyk Certified</h4>
+              <span class="cert-cost highlight-green" style="color: #064e3b; font-weight: bold;">$0 Free</span>
+            </div>
+            <p class="cert-desc">Snyk Certified Associate. Snyk provides structured AppSec and SCA courses for free, including official completion credentials.</p>
+          </div>
+
+          <!-- Cert 2 -->
+          <div class="cert-card">
+            <div class="cert-title-row">
+              <h4 style="font-family: 'Architects Daughter';">GitLab CI Associate</h4>
+              <span class="cert-cost highlight-green" style="color: #064e3b; font-weight: bold;">$0 Free</span>
+            </div>
+            <p class="cert-desc">GitLab Certified CI/CD Associate. GitLab offers official courses and digital completion credentials for free.</p>
+          </div>
+
+          <!-- Cert 3 -->
+          <div class="cert-card">
+            <div class="cert-title-row">
+              <h4 style="font-family: 'Architects Daughter';">GitHub Actions</h4>
+              <span class="cert-cost highlight-yellow" style="color: #854d0e; font-weight: bold;">~$99</span>
+            </div>
+            <p class="cert-desc">Validates enterprise-level CI/CD automation capabilities using GitHub Actions. High job market demand.</p>
+          </div>
+
+          <!-- Cert 4 -->
+          <div class="cert-card">
+            <div class="cert-title-row">
+              <h4 style="font-family: 'Architects Daughter';">CKA (Kubernetes)</h4>
+              <span class="cert-cost highlight-yellow" style="color: #854d0e; font-weight: bold;">~$395</span>
+            </div>
+            <p class="cert-desc">Certified Kubernetes Administrator. Crucial foundation for container orchestration security roles.</p>
+          </div>
+
+        </div>
+
+      </section>
+
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>CloudMap &copy; 2026. Phase 3 learning path notebook page.</p>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
